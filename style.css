@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --purple: hsl(292, 82%, 45%);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--light-pink);
+
+  position: relative;
+}
+
+.bg {
+  background-image: url(./assets/images/background-pattern-desktop.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 35vh;
+
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wrapper {
+  border-radius: 6px;
+  max-width: 600px;
+  padding: 3rem;
+
+  background-color: var(--white);
+  position: relative;
+}
+
+.blur {
+  height: 150px;
+  width: 150px;
+  background-color: var(--purple);
+  border-radius: 50%;
+  filter: blur(80px);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  animation: rt 5s linear infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes rt {
+  0% {
+    top: 50%;
+    left: 50%;
+    background: var(--purple);
+  }
+
+  25% {
+    top: 30%;
+    left: 50%;
+    background: var(--grayish-purple);
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+    background: var(--purple);
+  }
+  75% {
+    top: 50%;
+    left: 50%;
+    background: var(--light-pink);
+  }
+  100% {
+    top: 45%;
+    left: 25%;
+    background: var(--light-pink);
+  }
+}
+
+div.title {
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+
+.title h1 {
+  font-size: 2.5rem;
+}
+
+.container {
+  margin-top: 2rem;
+}
+
+.question {
+  padding: 16px 8px;
+}
+
+.container .question:not(:last-child) {
+  border-bottom: 1px solid var(--light-pink);
+}
+
+.question div.flex {
+  justify-content: space-between;
+}
+
+.question div.flex > p {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.question div.flex > p:hover {
+  color: var(--purple);
+}
+
+.icons {
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+blockquote {
+  line-height: 1.6;
+  font-size: 13px;
+  color: var(--grayish-purple);
+  padding: 0.7rem 0.7rem 0 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+/* Media queries */
+@media only screen and (max-width: 600px) {
+  body {
+    position: initial;
+    padding: 2rem;
+
+    overflow-x: hidden;
+  }
+  .wrapper {
+    width: 100%;
+  }
+}
